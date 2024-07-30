@@ -1,7 +1,7 @@
 import express from "express";
 import {
   deleteItemFromSearchHistory,
-  getSearchHistory,
+  searchHistory,
   searchMovie,
   searchPerson,
   searchTv,
@@ -12,6 +12,6 @@ const router = express.Router();
 router.get("/person/:query", searchPerson);
 router.get("/movie/:query", searchMovie);
 router.get("/tv/:query", searchTv);
-router.get("/history", getSearchHistory);
+router.get("/history", searchHistory);
 router.delete("/history/:id", deleteItemFromSearchHistory);
 export default router;
