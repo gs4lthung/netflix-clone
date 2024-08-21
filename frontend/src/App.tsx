@@ -13,6 +13,7 @@ export default function App() {
   const { user, isCheckingAuth, authCheck } = useAuthStore() as {
     user: JSON;
     isCheckingAuth: boolean;
+    authCheck: () => void;
   };
   console.log("user is here", user);
   useEffect(() => {

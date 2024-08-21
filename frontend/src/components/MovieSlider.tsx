@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useContentStore } from "../store/content";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -37,11 +37,11 @@ export default function MovieSlider({ category }: { category: string }) {
   };
   const scrollRight = () => {
     if (sliderRef.current) {
-        sliderRef.current.scrollBy({
-          left: sliderRef.current.offsetWidth,
-          behavior: "smooth",
-        });
-      }
+      sliderRef.current.scrollBy({
+        left: sliderRef.current.offsetWidth,
+        behavior: "smooth",
+      });
+    }
   };
   return (
     <div
@@ -52,7 +52,10 @@ export default function MovieSlider({ category }: { category: string }) {
       <h2 className="mb-4 text-2xl font-bold">
         {formattedCategoryName} {formattedContentType}
       </h2>
-      <div className="flex space-x-4 overflow-x-scroll scrollbar-hide" ref={sliderRef}>
+      <div
+        className="flex space-x-4 overflow-x-scroll scrollbar-hide"
+        ref={sliderRef}
+      >
         {content?.map((item) => (
           <Link
             to={`/watch/${item.id}`}
